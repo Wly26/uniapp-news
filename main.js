@@ -1,8 +1,12 @@
 import App from './App'
+// 引入封装的请求
+import api from './common/api'
 
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
+// 引入封装的请求
+Vue.prototype.$api = api
 App.mpType = 'app'
 const app = new Vue({
     ...App
