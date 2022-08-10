@@ -174,7 +174,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     },
     getList: function getList(current) {var _this = this;
       this.$api.get_list({
-        name: this.tab[current].name }).
+        name: this.tab[current].name,
+        page: 1,
+        pageSize: 10 }).
       then(function (res) {
         console.log(res);var
         data = res.data;

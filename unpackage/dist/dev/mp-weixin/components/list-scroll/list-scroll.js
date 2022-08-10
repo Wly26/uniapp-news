@@ -134,6 +134,7 @@ var _default =
   },
   methods: {
     loadmore: function loadmore() {
+      console.log("触发上拉事件");
       this.$emit('loadmore');
     } } };exports.default = _default;
 

@@ -84,6 +84,9 @@ try {
     },
     listCard: function() {
       return __webpack_require__.e(/*! import() | components/list-card/list-card */ "components/list-card/list-card").then(__webpack_require__.bind(null, /*! @/components/list-card/list-card.vue */ 84))
+    },
+    uniLoadMore: function() {
+      return Promise.all(/*! import() | uni_modules/uni-load-more/components/uni-load-more/uni-load-more */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-load-more/components/uni-load-more/uni-load-more")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue */ 91))
     }
   }
 } catch (e) {
@@ -141,6 +144,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
 //
 //
 //

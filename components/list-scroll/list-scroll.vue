@@ -18,6 +18,7 @@
 		},
 		methods:{
 			loadmore(){
+				// console.log("触发上拉事件")
 				this.$emit('loadmore')
 			}
 		}

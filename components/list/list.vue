@@ -1,7 +1,7 @@
 <template>
 	<swiper class="home-swiper" :current="activeIndex" @change="change">
 		<swiper-item class="swiper-item" v-for="(item,index) in tab" :key="index">
-			<list-item :list="listCatchData[index]"></list-item>
+			<list-item :list="listCatchData[index]" :load=load[index] @loadmore = "loadmore"></list-item>
 		</swiper-item>
 	</swiper>
 </template>
@@ -19,7 +19,10 @@
 				list:[],
 				// 为了避免闪烁问题,这里有一个缓存数据的地方
 				// js 的限制 listCatchData[index] = data
-				listCatchData:{}
+				listCatchData:{},
+				load:{},
+				// page:1,
+				pageSize:10
 			}
 		},
 		props:{
@@ -45,6 +48,13 @@
 			// this.getList("全部")
 		},
 		methods:{
+			loadmore(){
+				if(this.load[this.activeIndex].loading === 'noMore') return
+				// console.log("触发上拉事件")
+				// this.page++,
+				this.load[this.activeIndex].page++
+				this.getList(this.activeIndex)
+			},
 			change(e){
 				// let current = e.detail.current;
 				const {
@@ -57,16 +67,33 @@
 				}
 			},
 			getList(current){
+				if(!this.load[current]){
+					this.load[current] = {
+						page: 1,
+						loading:'loading'
+					}
+				}
 				this.$api.get_list({
-						name: this.tab[current].name
+						name: this.tab[current].name,
+						page: this.load[current].page,
+						pageSize: this.pageSize
 					}).then((res) => {
 					console.log(res);
 					const {data} = res;
-					console.log(data);
-					// this.list = data
-					// this.listCatchData[current] = data;
+					// 数据已经加载完成时
+					if(data.length === 0){
+						let oldLoad = {}
+						oldLoad.loading = 'noMore'
+						oldLoad.page = this.load[current].page
+						this.$set(this.load,current,oldLoad)
+						// 强制重新渲染页面
+						this.$forceUpdate()
+						return
+					}
+					let oldList = this.listCatchData[current] || []
+					oldList.push(...data)
 					// 懒加载
-					this.$set(this.listCatchData, current, data)
+					this.$set(this.listCatchData, current, oldList)
 				})
 			}
 		}

@@ -8,7 +8,7 @@
 			<view class="listcard-content">
 				<view class="listcard-content__title">
 					<text>{{item.title}}</text>
-					<!-- <likes :types="types" :item="item"></likes> -->
+					<likes :types="types" :item="item"></likes>
 				</view>
 				<view class="listcard-content__des">
 					<view class="listcard-content__des-label">
@@ -24,7 +24,7 @@
 			<view class="listcard-content">
 				<view class="listcard-content__title">
 					<text>{{item.title}}</text>
-					<!-- <likes :types="types" :item="item"></likes> -->
+					<likes :types="types" :item="item"></likes>
 				</view>
 				<view class="listcard-image">
 					<view v-if="index < 3" v-for="(item,index) in item.cover" :key="index" class="listcard-image__item">
@@ -48,7 +48,7 @@
 			<view class="listcard-content">
 				<view class="listcard-content__title">
 					<text>{{item.title}}</text>
-					<!-- <likes :types="types" :item="item"></likes> -->
+					<likes :types="types" :item="item"></likes>
 				</view>
 				<view class="listcard-content__des">
 					<view class="listcard-content__des-label">
@@ -83,21 +83,22 @@
 		},
 		methods: {
 			open() {
-				const item = this.item
-				this.$emit('click', item)
-				const params = {
-					_id: item._id,
-					title: item.title,
-					author: item.author,
-					create_time: item.create_time,
-					thumbs_up_count: item.thumbs_up_count,
-					browse_count: item.browse_count
-				}
-				console.log('打开详情页面', params);
+				// const item = this.item
+				// this.$emit('click', item)
+				// const params = {
+				// 	_id: item._id,
+				// 	title: item.title,
+				// 	author: item.author,
+				// 	create_time: item.create_time,
+				// 	thumbs_up_count: item.thumbs_up_count,
+				// 	browse_count: item.browse_count
+				// }
+				// console.log('打开详情页面', params);
 				// 传参注意长度
-				uni.navigateTo({
-					url: '/pages/home-detail/home-detail?params=' + JSON.stringify(params)
-				})
+				// uni.navigateTo({
+				// 	url: '/pages/home-detail/home-detail?params=' + JSON.stringify(params)
+				// })
+				console.log('打开详情页面');
 			}
 		}
 
