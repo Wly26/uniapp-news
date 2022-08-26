@@ -21,6 +21,17 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		}
+        ,{
+            "path" : "pages/home-search/home-search",
+            "style" :                                                                                    
+            {
+				// 自定义导航栏
+				"navigationStyle": "custom",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

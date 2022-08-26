@@ -84,7 +84,7 @@
 		methods: {
 			open() {
 				// const item = this.item
-				// this.$emit('click', item)
+				this.$emit('click', this.item)
 				// const params = {
 				// 	_id: item._id,
 				// 	title: item.title,

@@ -5,7 +5,9 @@
 
 
 
-数据库 uniCloud  >  database  >  db_init.json
+数据库 
+	uniCloud  >  database  >  db_init.json
+
 
 页面框架
 	tabbar

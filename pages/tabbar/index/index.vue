@@ -16,9 +16,7 @@
 	// import navbar from "@/components/navbar/navbar.vue"
 	export default {
 		name:"index",
-		// components:{
-		// 	navbar
-		// },
+
 		data() {
 			return {
 				tabList:[],
