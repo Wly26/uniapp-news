@@ -50,7 +50,9 @@
 				})
 			},
 			open(){
-				console.log("tab中的open事件")
+				uni.navigateTo({
+					url:"/pages/home-label/home-label"
+				})
 			}
 		}
 	}

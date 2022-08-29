@@ -12,6 +12,7 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	// 组件名一致,可以不用import导入,components注册
 	// import navbar from "@/components/navbar/navbar.vue"
 	export default {
@@ -25,6 +26,12 @@
 			}
 		},
 		onLoad() {
+			uni.$on('labelChange',(res)=>{
+				this.tabList = []
+				this.tabIndex = 0
+				this.activeIndex = 0
+				this.getLabel()
+			})
 			this.getLabel()
 		},
 		methods: {
@@ -39,23 +46,19 @@
 				// 调用云函数方法
 				this.$api.get_label().then((res) => {
 					const {data} = res
-					// console.log('标签 ',data);
 					// 在前方加了一个数据
 					data.unshift({
 						name:'全部'
 					})
 					this.tabList = data
-					// 	console.log(this.tabList);
 				})
 			},
 			
 			change(current){
 				this.tabIndex = current
 				this.activeIndex = current
-				// console.log('当前swiper的值：',current);
 			},
 			tab({data,index}){
-				// console.log(data,index);
 				this.activeIndex = index
 			},
 			

@@ -1,7 +1,2 @@
 {
-  "name": "get_label",
-  "dependencies": {},
-  "extensions": {
-    "uni-cloud-jql": {}
-  }
 }
